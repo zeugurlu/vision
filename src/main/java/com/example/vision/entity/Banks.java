@@ -16,10 +16,13 @@ public class Banks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "user_id", unique = true, nullable = false)
+    @Column(name = "bank_code", nullable = false)
+    private String bank_code;
+
+    @Column(name = "user_id", nullable = false)
     private Integer user_id;
 
-    @Column(name = "user_email", unique = true, nullable = false)
+    @Column(name = "user_email", nullable = false)
     private String user_email;
 
     @Column(name = "credit_score", nullable = false)
