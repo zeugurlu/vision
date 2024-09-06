@@ -22,7 +22,7 @@ public class BanksController {
     @PostMapping
     public Banks add(@RequestBody Banks banks) {
         try {
-            logger.info("inside UserController.post() worked.");
+            logger.info("inside BanksController.post() worked.");
             return this.iBanksService.post(banks);
         } catch (Exception e) {
             logger.error("Error", e );
