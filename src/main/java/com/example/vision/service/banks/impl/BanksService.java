@@ -49,4 +49,13 @@ public class BanksService implements IBanksService {
         }
         this.banks.deleteById(id);
     }
+
+
+    @Override
+    public List<Banks> findBanksByEmail(String user_email) {
+        return this.banks.findBanksByEmail(user_email);
+    }
+
+
+
 }

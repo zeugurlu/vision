@@ -85,4 +85,14 @@ public class BanksController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @GetMapping("/email")
+    public List<Banks> getBanksByEmail(@RequestBody String user_email) {
+        System.out.println("Received email: " + user_email);
+        return this.iBanksService.findBanksByEmail(user_email);
+    }
+
+
+
+
 }
