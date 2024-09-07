@@ -10,5 +10,5 @@ public interface IBanksService {
     List<Banks> getAll();
     Banks update(Integer id, Banks banks);
     void delete(Integer id);
-    List<Banks> findBanksByEmail(String userEmail);
+    List<Banks> findBanksByEmail(String user_email);
 }

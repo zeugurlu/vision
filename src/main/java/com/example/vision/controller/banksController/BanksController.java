@@ -86,10 +86,18 @@ public class BanksController {
         }
     }
 
-    @GetMapping("/email")
-    public List<Banks> getBanksByEmail(@RequestBody String user_email) {
-        System.out.println("Received email: " + user_email);
-        return this.iBanksService.findBanksByEmail(user_email);
+    @GetMapping("/email/{user_email}")
+    public ResponseEntity<List<Banks>> getBanksByEmail(@PathVariable String user_email) {
+        try {
+            System.out.println("Received email: " + user_email);
+            String user = user_email.trim().replace("\n", "").replace("\r", "");
+            List<Banks> banksList = this.iBanksService.findBanksByEmail(user);
+            System.out.println("selam"+banksList.isEmpty());
+            return ResponseEntity.ok(banksList);
+        } catch (Exception e) {
+            logger.error("Error fetching banks for email: " + user_email, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
 
