@@ -56,6 +56,11 @@ public class BanksService implements IBanksService {
         return this.banks.findBanksByEmail(user_email);
     }
 
+    @Override
+    public Long totalCredits(String user_email) {
+        return this.banks.totalCredits(user_email);
+    }
+
 
 
 }

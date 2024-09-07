@@ -11,4 +11,5 @@ public interface IBanksService {
     Banks update(Integer id, Banks banks);
     void delete(Integer id);
     List<Banks> findBanksByEmail(String user_email);
+    Long totalCredits(String user_email);
 }

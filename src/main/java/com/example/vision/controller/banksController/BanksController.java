@@ -100,6 +100,18 @@ public class BanksController {
         }
     }
 
+    @GetMapping("/total-credits/{user_email}")
+    public ResponseEntity<Long> getTotalCredits(@PathVariable("user_email") String user_email) {
+        try {
+            String user = user_email.trim().replace("\n", "").replace("\r", "");
+            Long totalCredits = iBanksService.totalCredits(user);
+            return ResponseEntity.ok(totalCredits);
+        } catch (Exception e) {
+            logger.error("Error fetching total credits for email: " + user_email, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 
 
 
