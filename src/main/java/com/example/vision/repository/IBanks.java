@@ -14,4 +14,7 @@ public interface IBanks extends JpaRepository<Banks, Integer> {
     @Query(value = "SELECT SUM(credit_score) FROM banks WHERE user_email = ?1", nativeQuery = true)
     Long totalCredits(String user_email);
 
+    @Query(value = "SELECT * FROM banks WHERE bank_code = ?1", nativeQuery = true)
+    List<Banks> findBanksByBankCode(String bank_code);
+
 }

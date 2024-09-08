@@ -12,4 +12,5 @@ public interface IBanksService {
     void delete(Integer id);
     List<Banks> findBanksByEmail(String user_email);
     Long totalCredits(String user_email);
+    List<Banks> findBanksByBankCode(String user_email);
 }

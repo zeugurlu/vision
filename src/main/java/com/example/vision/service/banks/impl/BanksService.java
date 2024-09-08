@@ -61,6 +61,10 @@ public class BanksService implements IBanksService {
         return this.banks.totalCredits(user_email);
     }
 
+    @Override
+    public List<Banks> findBanksByBankCode(String bank_code) {
+        return this.banks.findBanksByBankCode(bank_code);
+    }
 
 
 }

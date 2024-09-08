@@ -112,6 +112,20 @@ public class BanksController {
         }
     }
 
+    @GetMapping("/bankCode/{bank_code}")
+    public ResponseEntity<List<Banks>> getBanksByBankCode(@PathVariable String bank_code) {
+        try {
+            System.out.println("Received code: " + bank_code);
+            String code = bank_code.trim().replace("\n", "").replace("\r", "");
+            List<Banks> banksList = this.iBanksService.findBanksByBankCode(code);
+            System.out.println(banksList.isEmpty());
+            return ResponseEntity.ok(banksList);
+        } catch (Exception e) {
+            logger.error("Error fetching banks for email: " + bank_code, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 
 
 
